@@ -7,10 +7,31 @@ module.exports = {
   ],
   theme: {
     extend: {
+      colors: {
+        "primary-bold": "#3e136b",
+        "primary-text": "#802bda",
+        "bg-color": "#f0e5fb",
+        'hover-color': '#d3b6f2'
+      },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+      },
+      animation: {
+        text: "text 5s ease infinite",
+      },
+      keyframes: {
+        text: {
+          "0%, 100%": {
+            "background-size": "200% 200%",
+            "background-position": "left center",
+          },
+          "50%": {
+            "background-size": "200% 200%",
+            "background-position": "right center",
+          },
+        },
       },
     },
   },
