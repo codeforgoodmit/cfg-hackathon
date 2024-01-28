@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import "./page.css";
 import Logo from "../../public/vercel.svg";
 import { AdditionalInfo } from "@/data/AdditionalInfo";
+import Countdown from "@/components/Countdown";
 export default function Home() {
   const [lastScrollTop, setLastScrollTop] = useState(0); // Initialize the state
 
@@ -63,45 +64,45 @@ export default function Home() {
               <Image src={Logo} height={100} width={100} />
             </a>
           </div>
-          <div className="h-20 font-semibold flex items-center py-10 text-primary-text">
+          <div className="h-20 ml-2 xl:ml-8 gap-4 xl:gap-8 font-semibold flex items-center py-10 text-primary-text">
             <a
-              className="ml-8 pb-1 cursor-pointer link link-underline link-underline-black "
+              className="pb-1 cursor-pointer link link-underline link-underline-black "
               href="#about"
             >
               About
             </a>
             <a
-              className="ml-8  pb-1 cursor-pointer link link-underline link-underline-black "
+              className=" pb-1 cursor-pointer link link-underline link-underline-black "
               href="#home"
             >
               Home
             </a>
             <a
-              className="ml-8  pb-1 cursor-pointer link link-underline link-underline-black "
+              className=" pb-1 cursor-pointer link link-underline link-underline-black "
               href="#tracks"
             >
               Tracks
             </a>
             <a
-              className="ml-8 pb-1 cursor-pointer link link-underline link-underline-black "
+              className="pb-1 cursor-pointer link link-underline link-underline-black "
               href="#sponsors"
             >
               Sponsors
             </a>
             <a
-              className="ml-8 pb-1 cursor-pointer link link-underline link-underline-black "
+              className="pb-1 cursor-pointer link link-underline link-underline-black "
               href="#faqs"
             >
               FAQs
             </a>
             <a
-              className="ml-8 pb-1 cursor-pointer link link-underline link-underline-black "
+              className="pb-1 cursor-pointer link link-underline link-underline-black "
               href=""
             >
               2023
             </a>
             <a
-              className="ml-8 pb-1 cursor-pointer  link link-underline link-underline-black "
+              className="pb-1 cursor-pointer  link link-underline link-underline-black "
               href=""
             >
               Apply
@@ -112,9 +113,9 @@ export default function Home() {
           id="home"
           className="w-full pt-36 lg:pl-40 lg:pr-40 md:pl-20 md:pr-20 flex flex-col relative pb lg:items-center"
         >
-          <div className="container mx-auto px-4">
+          <div className="flex flex-col items-center container mx-auto px-4">
             <h1 className="text-4xl text-center font-extrabold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-teal-500 via-purple-500 to-orange-500 animate-text">
-              Stanford x MIT Social Good Hackathon<br></br>Join us for our first
+              Stanford x MIT Impactathon<br />Join us for our first
               year to dream and build the future!
             </h1>
             <p className="font-bold text-center text-primary-text text-lg w-4/5 m-auto">
@@ -122,8 +123,16 @@ export default function Home() {
               <br />
               collaborate to build solutions to the world’s largest challenges.
               <br />
-              <span className="text-primary-bold">April 5th</span>
             </p>
+            <div className="bg-primary-bold text-white container flex flex-col items-start justify-center mt-4 w-min whitespace-nowrap px-8 py-6 rounded-xl">
+              <div className="inline-block">
+                <p className="font-semibold mb-0.5 xl:text-lg lg:text-md text-lg">
+                  April 5th @ MIT and Stanford Virtually
+                </p>
+                <div className="h-1 mb-4 bg-white rounded-xl w-full" />
+              </div>
+              <Countdown targetDate="2024-04-15T00:00:00" />
+            </div>
           </div>
         </section>
         <section
@@ -149,9 +158,23 @@ export default function Home() {
             Additional Info
           </h1>
           {AdditionalInfo.map((info, index) => {
-           return <InfoBlock key={index} heading={info.heading} description={info.description}/>
+            return (
+              <InfoBlock
+                key={index}
+                heading={info.heading}
+                description={info.description}
+              />
+            );
           })}
         </section>
+        <div className="w-full py-10 flex flex-col relative overflow-hidden border-b">
+          <h1 className="font-bold text-lg text-primary-bold text-center mb-2">
+            Made with ❤︎ by the CodeforGood
+          </h1>
+          <h1 className="font-base text-md text-primary-bold text-center">
+          Copyright © 2024 MIT CodeforGood | Code Released under MIT license
+          </h1>
+        </div>
       </div>
     </>
   );
