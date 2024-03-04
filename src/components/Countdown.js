@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react';
+"use client";
+import React, { useState, useEffect } from "react";
 
 const calculateTimeLeft = (targetDate) => {
   const difference = +new Date(targetDate) - +new Date();
@@ -34,7 +35,7 @@ const Countdown = ({ targetDate }) => {
 
   return (
     <div className="countdown font-bold">
-      <h1 className='xl:text-7xl lg:text-6xl text-4xl text-white'>
+      <h1 className="xl:text-7xl lg:text-6xl text-4xl text-white">
         {days}d {hours}h {minutes}m {seconds}s
       </h1>
     </div>

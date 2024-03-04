@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import "./page.css";
 import Logo from "../../public/vercel.svg";
 import { AdditionalInfo } from "@/data/AdditionalInfo";
+import { Nonprofits } from "@/data/Nonprofits";
 import Countdown from "@/components/Countdown";
 export default function Home() {
   const [lastScrollTop, setLastScrollTop] = useState(0); // Initialize the state
@@ -51,7 +52,16 @@ export default function Home() {
       </div>
     );
   };
-
+  const NPOBlock = ({ heading, description }) => {
+    return (
+      <div className="w-4/5 text-lg text-primary-text font-bold hover:bg-hover-color px-4 py-4 rounded-lg">
+        <div className="font-extrabold text-primary-bold"> {heading} </div>
+        <ul className=" list-disc list-inside space-y-1">
+          <li>{description}</li>
+        </ul>
+      </div>
+    );
+  };
   return (
     <>
       <div className="overflow-hidden scroll-smooth bg-bg-color min-h-screen">
@@ -79,9 +89,9 @@ export default function Home() {
             </a>
             <a
               className=" pb-1 cursor-pointer link link-underline link-underline-black "
-              href="#tracks"
+              href="#nonprofits"
             >
-              Tracks
+              Nonprofits
             </a>
             <a
               className="pb-1 cursor-pointer link link-underline link-underline-black "
@@ -115,8 +125,9 @@ export default function Home() {
         >
           <div className="flex flex-col items-center container mx-auto px-4">
             <h1 className="text-4xl text-center font-extrabold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-teal-500 via-purple-500 to-orange-500 animate-text">
-              Stanford x MIT Impactathon<br />Join us for our first
-              year to dream and build the future!
+              Stanford x MIT Impactathon
+              <br />
+              Join us for our first year to dream and build the future!
             </h1>
             <p className="font-bold text-center text-primary-text text-lg w-4/5 m-auto">
               The country’s brightest engineering students from Stanford and MIT{" "}
@@ -152,6 +163,23 @@ export default function Home() {
         </section>
         <section
           className="w-full xl:pt-36 lg:pt-8 md:pt-14 pt-14 xl:pl-40 xl:pr-40 lg:pl-10 lg:pr-10 md:pl-20 md:pr-20 px-4 pb-12 flex flex-col relative justify-center items-center"
+          id="nonprofits"
+        >
+          <h1 className="text-4xl text-center font-extrabold mb-4 text-primary-bold">
+            Nonprofits
+          </h1>
+          {Nonprofits.map((info, index) => {
+            return (
+              <NPOBlock
+                key={index}
+                heading={info.heading}
+                description={info.description}
+              />
+            );
+          })}
+        </section>
+        <section
+          className="w-full xl:pt-36 lg:pt-8 md:pt-14 pt-14 xl:pl-40 xl:pr-40 lg:pl-10 lg:pr-10 md:pl-20 md:pr-20 px-4 pb-12 flex flex-col relative justify-center items-center"
           id="info"
         >
           <h1 className="text-4xl text-center font-extrabold mb-4 text-primary-bold">
@@ -172,7 +200,7 @@ export default function Home() {
             Made with ❤︎ by the CodeforGood
           </h1>
           <h1 className="font-base text-md text-primary-bold text-center">
-          Copyright © 2024 MIT CodeforGood | Code Released under MIT license
+            Copyright © 2024 MIT CodeforGood | Code Released under MIT license
           </h1>
         </div>
       </div>
