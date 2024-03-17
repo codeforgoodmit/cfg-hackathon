@@ -70,9 +70,9 @@ export default function Home() {
           id="site-header"
         >
           <div className="pt-10 pb-10">
-            <a href="#home">
+            {/* <a href="#home">
               <Image src={Logo} height={100} width={100} />
-            </a>
+            </a> */}
           </div>
           <div className="h-20 ml-2 xl:ml-8 gap-4 xl:gap-8 font-semibold flex items-center py-10 text-primary-text">
             <a
@@ -142,7 +142,7 @@ export default function Home() {
                 </p>
                 <div className="h-1 mb-4 bg-white rounded-xl w-full" />
               </div>
-              <Countdown targetDate="2024-04-15T00:00:00" />
+              <Countdown targetDate="2024-04-05T00:00:00" />
             </div>
           </div>
         </section>
